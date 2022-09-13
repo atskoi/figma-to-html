@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>flex</title>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="Flex money transfer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="coin, blockchain, flex money exchange, ethereum, bitcoin, ERC20, ERC721, ERC1155" />
+
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous"
+  referrerpolicy="no-referrer" />
+  <!-- Fonts links -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
+  <!-- Fav icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- User definition styles -->
+  <link href="assets/css/flex.css" rel="stylesheet">
+</head>
+
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <!-- Logo bar -->
+        <div class="row shadow shadow-sm">
+          <!-- <div
+            class="col-2 col-md-2 col-lg-1 d-flex justify-content-center align-items-center bg-danger text-white cursor-pointer"
+            data-toggle="collapse" data-target="#left-navbar">
+            <i class="fa fa-bars fa-3x"></i>
+          </div> -->
+          <div class="col-6 col-md-3 col-lg-6 d-flex flex-row justify-content-start align-items-center">
+            <div class="custom-menu">
+              <div id="sidebarCollapse" class="btn btn-primary">
+                <i class="fa fa-bars"></i>
+              </div>
+            </div>
+            <img id="btn-logo" class="ms-3" src="assets/img/FLEX-LOGO.png" style="height: 70px; width: auto;" />
+          </div>
+          <div class="col-lg-6 col-md-9 col-12 d-flex flex-row-reverse justify-content-start align-items-center">
+            <img src="assets/img/man.jpg" class="rounded-pill mx-3" style="height: 70px; width: auto;" />
+            <i class="fa fa-bell-o fs-3 mx-2 position-relative">
+              <span class="position-absolute top-75 start-100 translate-middle p-2 bg-warning border border-light rounded-circle">
+              </span>
+            </i>
+            <div class="input-group mx-3">
+              <input id="search-input" type="search" class="form-control col-10" placeholder="Search anything...">
+              <button id="search-button" type="button" class="btn btn-sm btn-danger col-2">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main body -->
+    <div class="row flex-md-nowrap overflow-hidden">
+      <!-- nav bar -->
+      <div id="sidebar" class="u-flexsidebar flex-column align-items-center justify-content-between u-bg-red" style="width:130px; height:calc(100vh - 70px) ">
+      <!-- <div id="sidebar" class="position-relative col-xl-1 col-lg-2 col-md-3 u-bg-red min-vh-100"> -->
+        <div class="d-flex flex-row flex-md-column">
+          <div class="d-flex flex-column align-items-center mx-4" >
+            <div id="navmenubtn-dashboard" class="nav-hotbtn my-3 d-flex justify-content-center align-items-center rounded-circle text-center cursor-pointer nav-hotbtn-active">
+                <i class="fa fa-home fa-2x"></i>
+            </div>            
+            <p class="text-white">Dashboard</p>
+          </div>
+          <div class="d-flex flex-column align-items-center mx-4">
+            <div id="navmenubtn-currencies" class="nav-hotbtn my-3 d-flex justify-content-center align-items-center rounded-circle text-center cursor-pointer">
+              <i class="fa fa-file-text fa-2x"></i>
+            </div>            
+            <p class="text-white">Currencies</p>
+          </div>
+          <div class="d-flex flex-column align-items-center mx-4">
+            <div id="navmenubtn-settings" class="nav-hotbtn my-3 d-flex justify-content-center align-items-center rounded-circle text-center cursor-pointer">
+              <i class="fa fa-cog fa-2x"></i>
+            </div>            
+            <p class="text-white">Settings</p>
+          </div>          
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+          <img id="navmenubtn-profile" src="assets/img/man.jpg" class="d-flex justify-content-center mb-5 cursor-pointer rounded-pill" style="height: 70px; width: auto;" />
+        </div>
+      </div>
+      <!-- content viewer case 1 : dashboard -->
+      <div id="contentbox-dashboard" class="mt-3 contentbox flex-fill w-auto">
+        <div class="row">
+          <div id="dashboard-btn-sendmoney" class="col-xl-4 col-lg-6 my-4 cursor-pointer">
+            <div class="shadow p-4">
+              <div class="row align-items-center">
+                <div class="col-md-4 col-lg-3 my-4">
+                  <div class="text-center">
+                    <i class="fa fa-paper-plane fa-3x u-text-red "></i>
+                  </div>
+                </div>
+                <div class="col-md-8 col-lg-9 text-center text-md-start">
+                  <p class="fs-4">Send Moeny</p>
+                  <p>From acc to acc</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="dashboard-btn-beneficiary" class="col-xl-4 col-lg-6 my-4 cursor-pointer">
+            <div class="shadow p-4">
+              <div class="row align-items-center">
+                <div class="col-md-4 col-lg-3 my-4">
+                  <div class="text-center">
+                    <i class="fa fa-user fa-3x text-warning"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 col-lg-9 text-center text-md-start">
+                  <p class="fs-4 text-nowrap">Beneficiary Listing</p>
+                  <p>Manage Contacts</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div  id="dashboard-btn-history" class="col-xl-4 col-lg-6 my-4 cursor-pointer">
+            <div class="shadow p-4">
+              <div class="row align-items-center">
+                <div class="col-md-4 col-lg-3 my-4">
+                  <div class="text-center">
+                    <i class="fa fa-exchange fa-3x bg-seconday text-info"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 col-lg-9 text-center text-md-start">
+                  <p class="fs-4 text-nowrap">Transaction History</p>
+                  <p>Account Activity</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row rounded-2 shadow mt-4 mx-1">
+          <div class="row my-2">
+            <div class="col-6 fs-4">Last Transaction</div>
+            <div class="col-6 d-flex justify-content-end align-items-center">View More</div>
+          </div>
+          <div class="col">
+            <div class="table-responsive">
+              <table id="transaction-history-list" class="table table-hover table-responsive">
+                <thead class="table-secondary">
+                  <tr>
+                    <th>Paying to</th>
+                    <th>Transaction Value</th>
+                    <th>Delivery Channel</th>
+                    <th>Fund Account</th>
+                    <th>Paying From</th>
+                    <th>Payment Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr>
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- content viewer case 2 : dashboard/transaction history -->
+      <div id="contentbox-history" class="flex-fill mt-3 contentbox" style="display:none">
+         <div class="row my-2">
+            <div class="col-md-6 fs-4">Last Transaction</div>
+            <div class="col-md-6 d-flex justify-content-end align-items-center">
+              <div class="form-group has-search me-2">
+                <span class="fa fa-search form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button id="history-btn-filter" class="btn btn-sm btn-outline-light text-dark" style="width:40px; height:30px;"><i class="fa fa-filter fs-5"></i></button>
+              <button id="history-btn-sortby" class="btn btn-sm btn-outline-light text-dark" style="width:40px; height:30px"><i class="fa fa-sort fs-5"></i></button>
+              <button id="history-btn-export" class="btn btn-sm btn-outline-light text-dark" style="width:40px; height:30px"><i class="fa fa-file-text fs-5"></i></button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="card flex-row align-items-center">
+                <div class="btn btn-sm text-dark position-absolute fs-4 ms-3 mt-2">1
+                  <span class="position-absolute top-75 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                  </span>
+                </div>
+                <div class="card-body text-center fs-5">
+                  Upcoming Transaction
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row rounded-2 shadow mt-4 mx-1">
+          <div class="col">
+            <div class="table-responsive">
+              <table class="table table-hover table-responsive">
+                <thead class="table-secondary">
+                  <tr>
+                    <th>Paying to</th>
+                    <th>Transaction Value</th>
+                    <th>Delivery Channel</th>
+                    <th>Fund Account</th>
+                    <th>Paying From</th>
+                    <th>Payment Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr class="cursor-pointer" id="transaction1" onclick="onTransactionRow(this)">
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr class="cursor-pointer" id="transaction2" onclick="onTransactionRow(this)">
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr class="cursor-pointer" id="transaction3" onclick="onTransactionRow(this)">
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                  <tr class="cursor-pointer" id="transaction4" onclick="onTransactionRow(this)">
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr onclick="onTransactionRow(this)">
+                  <tr class="cursor-pointer" id="transaction5" onclick="onTransactionRow(this)">
+                    <td>Khalid Saied Abdelmonem</td>
+                    <td>D530 USDoe</td>
+                    <td>Bank Account</td>
+                    <td>Bank Transfer</td>
+                    <td>Bank Account</td>
+                    <td>Approved</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- content viewer case 3 : currencies  -->
+      <div id="contentbox-currencies" class="flex-fill mt-3 contentbox mb-5 " style="display:none">
+        <div class="row mt-5">
+          <div class="col-lg-5  d-flex flex-column justify-content-center align-items-center my-2 my-md-4 my-lg-5">
+            <div class="row mt-5 mb-5">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 d-flex mt-5 flex-column justify-content-center align-items-center">
+                <p class="fs-2 mb-5">First Currency</p>
+                <p class="mx-5 text-center mt-5">Use our tool to transfer between currencies in order to make payments</p>
+                <div class="input-group mt-2 ms-5 me-5">
+                  <input type="text" class="form-control fs-1 only_bottom_input text-center" placeholder="0.00">
+                  <div class="">
+                    <select class="form-select h-60px">
+                      <option>USD</option>
+                      <option>EURO</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>              
+            </div>
+          </div>
+          <div class="col-lg-2   d-flex flex-column justify-content-center align-items-center">
+            <!-- <i class="fa fa-exchange fa-5x text-warning" aria-hidden="true"></i> -->
+            <img src="assets/img/icon-exchange.png"/>
+          </div>
+          <div class="col-lg-5 d-flex flex-column justify-content-center align-items-center my-2 my-md-4 my-lg-5">
+            <div class="row mt-5 mb-5">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 d-flex  mt-5 flex-column justify-content-center align-items-center">
+                <p class="fs-2 mb-5">Second Currency</p>
+                <p class="mx-5 text-center mt-5">The result will appear on this side in the equivalent currency</p>
+                <div class="input-group mt-2 ms-5 me-5">
+                  <input type="text" class="form-control fs-1 only_bottom_input text-center" placeholder="0.00">
+                  <div class="">
+                    <select class="form-select h-60px">
+                      <option>USD</option>
+                      <option>EURO</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>              
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content viewer case 4 : settings /mainmenu  -->
+      <div id="contentbox-settings" class="flex-fill mt-3 contentbox" style="display:none">
+        <div class="row mt-5">
+          <div id="settings-btn-security" class="col-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center my-5 cursor-pointer">
+            <img src="assets/img/icon-security.png" width="150px" height="150px" />
+            <p class="fs-5">Security Settings</p>
+          </div>
+          <div id="settings-btn-contactus" class="col-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center my-5 cursor-pointer">
+            <img src="assets/img/icon-suitcase.png" width="150px" height="150px" />
+            <p class="fs-5">Contact Us</p>
+          </div>
+          <div id="settings-btn-language" class="col-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center my-5 cursor-pointer">
+            <img src="assets/img/icon-lang.png" width="150px" height="150px" />
+            <p class="fs-5">Language</p>
+          </div>
+          <div id="settings-btn-notifications" class="col-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center my-5 cursor-pointer">
+            <img src="assets/img/icon-bell.png" width="150px" height="150px" />
+            <p class="fs-5">Notifications</p>
+          </div>
+          <div id="settings-btn-rateus" class="col-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center my-5 cursor-pointer">
+            <img src="assets/img/icon-bell.png" width="150px" height="150px" />
+            <p class="fs-5">Rate Us</p>
+          </div>
+          <div id="settings-btn-privacypolicy" class="col-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center my-5 cursor-pointer">
+            <img src="assets/img/icon-key.png" width="150px" height="150px" />
+            <p class="fs-5">Privacy Policy</p>
+          </div>
+          <div id="settings-btn-cancellation" class="col-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center my-5 cursor-pointer">
+            <img src="assets/img/icon-close.png" width="150px" height="150px" />
+            <p class="fs-5">Cancellation</p>
+          </div>
+          <div id="settings-btn-faqs" class="col-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center my-5 cursor-pointer">
+            <img src="assets/img/icon-question.png" width="150px" height="150px" />
+            <p class="fs-5">FAQs</p>
+          </div>        
+        </div>
+      </div>
+      <!-- content viewer case 5 : settings /mainmenu /security setting  -->
+      <div id="contentbox-settings-security" class="flex-fill mt-3 contentbox"  style="display:none">
+        <div id="setting-security-btn-back" class="row mt-5 ms-5 fs-3">
+          <div class="col d-flex flex-row align-items-center cursor-pointer"><i class="fa fa-angle-left fa-2x"></i><p class="fs-3 ms-5 mt-3">Security Settings</p></div>
+        </div>
+        <div class="row mt-5 ms-5">
+          <div id="setting-security-btn-password" class="row ms-5">
+            <div class="col d-flex flex-row align-items-center cursor-pointer"><i class="fa fa-key fs-3"></i><p class="fs-4 ms-5 mt-3">Password</p></div>
+          </div>
+          <div class="row ms-5 text-secondary">
+            <div class="col">Last changed on 09 Feb 2022. Tap above to change</div>
+          </div>
+        </div>
+        <div class="row mt-5 ms-5">
+          <div id="setting-security-btn-twostep" class="row ms-5">
+            <div class="col d-flex flex-row align-items-center cursor-pointer"><i class="fa fa-mobile fs-3"></i><p class="fs-4 ms-5 mt-3">Two-Step Verification</p></div>
+          </div>
+          <div class="row ms-5 text-secondary">
+            <div class="col">We're sending verification to your mobile number +971 * * * * * * 74. Tap above to set</div>
+          </div>
+        </div>
+        <div class="row mt-5 ms-5">
+          <div id="setting-security-btn-registerednumber" class="row ms-5">
+            <div class="col d-flex flex-row align-items-center cursor-pointer"><i class="fa fa-lock fs-3"></i><p class="fs-4 ms-5 mt-3">Registered Mobile Number</p></div>
+          </div>
+          <div class="row ms-5 text-secondary">
+            <div class="col">Last changed on 09 Feb 2022. Tap above to change</div>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- content viewer case 6 : settings /mainmenu /Privacy Policy  -->
+      <div id="contentbox-settings-privacypolicy" class="flex-fill mt-3 contentbox"  style="display:none">
+        <div id="setting-privacypolicy-btn-back" class="row mt-5 ms-5 fs-3">
+          <div class="col d-flex flex-row align-items-center cursor-pointer"><i class="fa fa-angle-left fa-2x"></i><p class="fs-3 ms-5 mt-3">Private Policy</p></div>
+        </div>
+        <div class="row mt-5 mx-5">
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt
+            explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolori
+            m ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quar
+            e ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ra
+            tione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accui
+            antium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernai
+            ur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia no
+            ni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita ae consequatur, vel illum qui dolorem eumf
+            ugiat quo voluptas nulla pariatur
+          </p>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt
+            explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolori
+            m ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quar
+            e ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ra
+            tione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accui
+            antium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernai
+            ur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia no
+            ni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita ae consequatur, vel illum qui dolorem eumf
+            ugiat quo voluptas nulla pariatur
+          </p>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt
+            explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolori
+            m ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quar
+            e ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ra
+            tione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accui
+            antium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernai
+            ur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia no
+            ni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita ae consequatur, vel illum qui dolorem eumf
+            ugiat quo voluptas nulla pariatur
+          </p>
+
+        </div>
+      </div>
+      <!-- content viewer case 7 : settings /mainmenu /FAQs  -->
+      <div id="contentbox-settings-faqs" class="flex-fill mt-3 contentbox"  style="display:none">
+        <div id="setting-faqs-btn-back" class="row mt-5 ms-5 fs-3">
+          <div class="col d-flex flex-row align-items-center cursor-pointer"><i class="fa fa-angle-left fa-2x"></i><p class="fs-3 ms-5 mt-3">FAQs</p></div>
+        </div>
+        <div class="row mt-5 mx-5">
+          <div>
+            <p class="fs-4 fw-bold">What is our aim and goal towards users?</p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt
+              explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolori
+              m ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quar
+              antium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernai
+              ur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia no
+              ni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita ae consequatur, vel illum qui dolorem eumf
+              ugiat quo voluptas nulla pariatur</p>
+          </div>
+          <div>
+            <p class="fs-4 fw-bold">What is our aim and goal towards users?</p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt
+              explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolori
+              m ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quar
+              e ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ra
+              ur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia no
+              ni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita ae consequatur, vel illum qui dolorem eumf
+              ugiat quo voluptas nulla pariatur</p>
+          </div>
+          <div>
+            <p class="fs-4 fw-bold">What is our aim and goal towards users?</p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt
+              explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolori
+              m ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quar
+              e ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ra
+              tione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accui
+              ni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita ae consequatur, vel illum qui dolorem eumf
+              ugiat quo voluptas nulla pariatur</p>
+          </div>
+        </div>
+      </div>
+      <!-- content viewer case 8 : settings /mainmenu /Cancellation  -->
+      <div id="contentbox-settings-cancellation" class="flex-fill mt-3 contentbox"  style="display:none">
+        <div id="setting-cancellation-btn-back" class="row mt-5 ms-5 fs-3">
+          <div class="col d-flex flex-row align-items-center cursor-pointer"><i class="fa fa-angle-left fa-2x"></i><p class="fs-3 ms-5 mt-3">Cancellation</p></div>
+        </div>
+        <div class="mt-5 mx-5">
+          <div class="">
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt
+              explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolori
+              m ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quar
+              e ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ra
+              tione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accui
+              antium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernai
+              ur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia no
+              ni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita ae consequatur, vel illum qui dolorem eumf
+              ugiat quo voluptas nulla pariatur    
+            </p>
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt
+              explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolori
+              m ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quar
+              e ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ra
+              tione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accui
+              antium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernai
+              ur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia no
+              ni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita ae consequatur, vel illum qui dolorem eumf
+              ugiat quo voluptas nulla pariatur    
+            </p>
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt
+              explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolori
+              m ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quar
+              e ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur ma gni dolores eos qui ra
+              tione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia noni Sed ut perspiciatis unde omnis iste natus error sit voluptatem accui
+              antium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verita tis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernai
+            </p>
+          </div>
+          <div class="d-flex mt-5">
+            <div class="d-flex align-items-center">
+              <i class="fa fa-phone fs-3 u-text-red mx-3"></i>
+              <div>
+                <div class="fw-bold">Suport via Call</div>
+                <div>+971 52 179 6774</div>
+              </div>
+            </div>
+            <div class="d-flex ms-5  align-items-center">
+              <i class="fa fa-phone  fs-3 u-text-red mx-3"></i>
+              <div>
+                <div class="fw-bold">Suport via Call</div>
+                <div>+971 52 179 6774</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>  
+  </div>
+
+    <!-- ====================================================
+      Profile edit modal 
+    ======================================================== -->  
+    <!-- Two step set success modal -->  
+    <div class="modal" id="modal-profile">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div id="profile-save" class="position-absolute start-100 translate-middle-x mt-3">
+            <i class="fa fa-pencil fs-3 me-5 cursor-pointer" aria-hidden="true">
+            </i>
+          </div>
+          <!-- Modal Header -->
+          <div class="modal-header d-flex flex-column justify-content-center text-center">
+            <img src="assets/img/man.jpg" class="rounded-pill mx-3 mt-3" style="height: 100px; width: auto;" />
+            <p class="fs-5 text-secondary mt-4">Joined June 2019</p>
+            <div id="modal-title" class="modal-title fs-3 mt-31 mb-2 ">
+              Salma Abu Al-Yazeed
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="d-flex my-4 mx-5">
+              <div id="profile-tabbtn-personalinfo" class="col-6 text-center p-3 fs-5 cursor-pointer  text-secondary border-bottom border-secondary border-3 text-dark"
+                onclick="">Personal Info</div>
+              <div id="profile-tabbtn-addressinfo" class="col-6 text-center p-3  fs-5 cursor-pointer text-secondary" onclick="">Address Info
+              </div>
+            </div>
+            <div class="row">
+              <div id="tabcontent-userinfo" class="col-12 my-4">
+                <div class="row">
+                  <div class="col-md-6 my-2">
+                      <i class="fa fa-user-o fs-5"></i>
+                      <span class="mx-3">Full Name</span>
+                    <!-- </div> -->
+                      <div class="input-group h-60px mt-2">
+                      <input type="text" class="form-control" placeholder="Akram@gmail.com">
+                    </div>
+                  </div>                      
+                  <div class="col-md-6 my-2">
+                    <i class="fa fa-tint fs-5"></i>
+                    <span class="mx-3">Date of Birth</span>
+                    <!-- </div> -->
+                    <div class="input-group h-60px mt-2">
+                      <input type="text" class="form-control" placeholder="Akram@gmail.com">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 my-2">
+                    <i class="fa fa-flag-checkered  fs-5"></i>
+                    <span class="mx-3">Nationality</span>
+                    <div class="input-group h-60px mt-2">
+                      <select class="form-select">
+                        <option>Egyptian</option>
+                        <option>American</option>
+                        <option>Japanese</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6 my-2">
+                    <i class="fa fa-male fs-5"></i>
+                    <i class="fa fa-female fs-5"></i>
+                    <span class="mx-2">Gender</span>
+                    <!-- </div> -->
+                    <div class="input-group h-60px mt-2">
+                      <input type="text" class="form-control" placeholder="Akram@gmail.com">
+                    </div>
+                </div>                    
+                </div>
+              </div>
+              <div id="tabcontent-addressinfo" class="col-12 my-4" style="display:none">
+                <div class="row">
+                  <div class="col-md-6 my-2">
+                    <i class="fa fa-phone fs-5"></i>
+                    <span class="mx-3">Phone</span>
+                    <div class="form-control py-0 d-flex align-items-center mt-2">
+                      <select class="selectpicker" data-width="150px" data-size="5">
+                        <option data-content="<div class='mt-1'><img src='assets/img/flag-AF.png' class='me-3'>+20</div>" value="1"></option>
+                        <option data-content="<div class='mt-1'><img src='assets/img/flag-AL.png' class='me-3'>+21</div>" value="2"></option>
+                        <option data-content="<div class='mt-1'><img src='assets/img/flag-AM.png' class='me-3'>+22</div>" value="3"></option>
+                      </select>                             
+                      <input id="phone" type="text" class="border-none w-100" placeholder="1236 7717 18">                            
+                    </div>
+                  </div>
+                  <div class="col-md-6 my-2">
+                    <i class="fa fa-envelope-o fs-5"></i>
+                    <span class="mx-3">Email</span>
+                    <div class="input-group h-60px mt-2">
+                     <input type="text" class="form-control" placeholder="Akram@gmail.com">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 my-2">
+                    <i class="fa fa-tint fs-5"></i>
+                    <span class="mx-3">Address</span>
+                    <div class="input-group h-60px mt-2">
+                      <input type="text" class="form-control" placeholder="">
+                    </div>                    
+                  </div>
+                  <div class="col-6 col-md-3 my-2">
+                    <i class="fa fa-tint fs-5"></i>
+                    <span class="mx-2">Post Code</span>
+                    <div class="input-group h-60px mt-2">
+                      <input type="text" class="form-control" placeholder="">
+                    </div>                         
+                  </div>
+                  <div class="col-6 col-md-3 my-2">
+                    <i class="fa fa-tint fs-5"></i>
+                    <span class="mx-2">Country</span>
+                    <!-- </div> -->
+                    <div class="input-group h-60px mt-2">
+                      <select class="form-select">
+                        <option>Egyptian</option>
+                        <option>American</option>
+                        <option>Japanese</option>
+                      </select>
+                      <!-- <input type="text" class="form-control" placeholder="Akram@gmail.com"> -->
+                    </div>  
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================================
+
+      Dashboard modals defenition starts
+
+    ==============================================================================================  -->
+    <!-- The modal name is "Send Money"-->
+    <div class="modal" id="modal-sendmoney">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="d-flex flex-column justify-content-center text-center">
+            <div id="modal-title" class="modal-title fs-3 mt-4 mb-2 ">
+              Send Money
+            </div>
+            <p class="text-secondary">Specify the transaction info in order to start processing send request</p>
+          </div>
+          <!-- Modal body -->
+          <div class="mx-5">
+            <div class="row">
+              <div class="col-6">
+                <div class="my-4 mx-2">
+                  <span class="mx-3">What you pay?</span>
+                  <div class="input-group mt-2">
+                    <input type="text" class="form-control fs-4 only_bottom_input" placeholder="0.00">
+                  </div>
+                  <p class="mt-2 ms-2">1 USD = 0.97390 EUR</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="my-4 mx-2">
+                  <span class="mx-3">What you pay?</span>
+                  <div class="input-group mt-2">
+                    <input type="text" class="form-control fs-4 only_bottom_input" placeholder="0.00">
+                  </div>
+                  <p class="mt-2 ms-2">1 EUR = 1.0285 USD</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="bg-secondary text-white rounded-2 text-center">
+                  exchange and processing fees included
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="my-4">
+                  <span class="mx-3">Paying to</span>
+                  <div class="input-group h-60px mt-2">
+                    <select class="form-select">
+                      <option>Select Beneficiary</option>
+                      <option>Address Book</option>
+                      <option>Friends</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="my-4">
+                  <span class="mx-3">Delivery Channel</span>
+                  <div class="input-group h-60px mt-2">
+                    <select class="form-select">
+                      <option>Bank Account</option>
+                      <option>Ethereum</option>
+                      <option>BNB</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="my-2">
+                  <div class="form-group">
+                    <label for="transfer-reason">Transfer Reason</label>
+                    <textarea class="form-control" id="transfer-reason"
+                      placeholder="Mention your transfer reasons here .." rows="3"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="my-2">
+                  <div class="form-group">
+                    <label for="additional-info">Additional Info</label>
+                    <textarea class="form-control" id="additional-info"
+                      placeholder="Mention additional info if needed .." rows="3"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="my-4">
+                  <span class="mx-3">Fund Account</span>
+                  <div class="input-group h-60px mt-2">
+                    <select class="form-select">
+                      <option>Bank Transfer</option>
+                      <option>Address Book</option>
+                      <option>Friends</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="my-4">
+                  <span class="mx-3">Paying from</span>
+                  <div class="input-group h-60px mt-2">
+                    <select class="form-select">
+                      <option>Select Bank Account</option>
+                      <option>Ethereum</option>
+                      <option>BNB</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="modal-btn-sendmoney" class="btn btn-lg form-control bg-danger text-white position-relative my-3">
+              <i id="modal-btnicon-sendmoney" class="fa fa-arrow-right fs-3 position-absolute signicon"></i>
+              <span class="visually-hidden spinner-border spinner-border-sm spinner "></span>
+              Proceed
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The modal name is "Confirm for send money"-->
+    <div class="modal" id="modal-confirm">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="d-flex flex-column justify-content-center text-center mx-5">
+            <div id="modal-title" class="modal-title fs-3 mt-4 mb-2 ">
+              Confirm
+            </div>
+            <p class="text-secondary">Confirm the transaction info in order to start processing send request</p>
+          </div>
+
+          <!-- Modal body -->
+          <div class="mx-4 ">
+            <div class="row">
+              <div class="col-6">
+                <div class="my-4 mx-2">
+                  <span class="mx-3">You pay</span>
+                  <!-- </div> -->
+                  <div class="input-group mt-2">
+                    <input type="text" class="form-control fs-4" placeholder="530 USD" disabled>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="my-4 mx-2">
+                  <span class="mx-3">Recipient get</span>
+                  <!-- </div> -->
+                  <div class="input-group mt-2">
+                    <input type="text" class="form-control fs-4" placeholder="2,000 EUR" disabled>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="my-4">
+                  <span class="mx-3">Paying to</span>
+                  <div class="input-group h-60px mt-2">
+                    <select class="form-select" disabled>
+                      <option>Select Beneficiary</option>
+                      <option>Address Book</option>
+                      <option>Friends</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="my-4">
+                  <span class="mx-3">Delivery Channel</span>
+                  <div class="input-group h-60px mt-2">
+                    <select class="form-select" disabled>
+                      <option>Bank Account</option>
+                      <option>Ethereum</option>
+                      <option>BNB</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="my-2">
+                  <div class="form-group">
+                    <label for="transfer-reason">Transfer Reason</label>
+                    <textarea class="form-control" id="transfer-reason"
+                      placeholder="Mention your transfer reasons here .." rows="3" disabled></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="my-4">
+                  <span class="mx-3">Fund Account</span>
+                  <div class="input-group h-60px mt-2">
+                    <select class="form-select" disabled>
+                      <option>Bank Transfer</option>
+                      <option>Address Book</option>
+                      <option>Friends</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="my-4">
+                  <span class="mx-3">Paying from</span>
+                  <div class="input-group h-60px mt-2">
+                    <select class="form-select" disabled>
+                      <option>Select Bank Account</option>
+                      <option>Ethereum</option>
+                      <option>BNB</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="-footer d-flex align-items-center my-3">
+              <div class="col btn btn-lg" data-bs-dismiss="modal" onclick="">Cancel</div>
+              <button id="modal-btn-payconfirm"
+                class="col btn btn-lg form-control bg-danger text-white position-relative" data-bs-dismiss="modal"
+                onclick="">
+                <i class="fa fa-check fs-3 position-absolute signicon"></i>
+                Proceed
+              </button>
+            </div>            
+          </div>
+
+          <!-- Modal footer -->
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- The modal name is "Sending money success"-->
+    <div class="modal" id="modal-sendmoney-success">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="d-flex justify-content-center text-center mt-5">
+            <div class="col-11 position-relative wh-equal d-flex justify-content-center align-items-center rounded-circle"  style="border: 1px solid rgba(0, 245, 0, 0.1)">
+              <img class="position-absolute start-50 top-50 translate-middle rounded-circle shining-effect-green fa fa-user fa-4x text-success bg-transparent " src="assets/img/icon-payment.png" />
+              <div class="col-8 d-flex justify-content-center align-items-center  wh-equal rounded-pill" style="border: 1px solid rgba(0, 245, 0, 0.2)">
+                <div class="col-7 d-flex justify-content-center align-items-center  wh-equal rounded-pill" style="border: 1px solid rgba(0, 245, 0, 0.3)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body text-center mx-4">
+            <div id="modal-title" class="modal-title fs-3 mt-3 mb-2 ">
+              Payment Sent
+            </div>
+            <p class="text-secondary mb-5">Your payment is on the way to the recipient and you can track it now
+            </p>
+            <p class="text-secondary">Transactions History</p>
+            <button id="" class="btn btn-lg form-control bg-danger text-white position-relative mb-3"
+              data-bs-dismiss="modal" onclick="">
+              <i class="fa fa-home fs-3 position-absolute signicon" aria-hidden="true"></i>
+              Process to home
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The modal name is "Beneficiaries"-->
+    <div class="modal" id="modal-beneficiary">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="d-flex flex-column justify-content-center text-center">
+            <div id="modal-title" class="modal-title fs-2 mt-5 mb-2 ">
+              My Beneficiaries
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body  mx-5">
+            <div class="w-100 mt-4 mb-3">
+              <div class="input-group mb-4 h-60px">
+                <input type="text" class="form-control" placeholder="What are you looking for?">
+                <span class="input-group-text text-success fs-1 cursor-hand px-4" id=""> + </span>
+              </div>
+            </div>
+            <div class="container-fluid mb-4">
+              <div class="row u-cardlistitem mt-2">
+                <div class="col-11 d-flex align-items-center">
+                  <img src="assets/img/man.jpg" class="rounded-pill mx-3 " style="height: 55px; width: 55px;" />
+                  <div class="ms-2 d-flex flex-column my-3">
+                    <div class="fw-bold">Suzana Adams</div>
+                    <div class="">Office@suzana.com</div>
+                  </div>
+                </div>
+                <div class="col-1 d-flex justify-content-end align-items-center dropdown dropstart text-end">
+                  <i class="fa fa-ellipsis-v fs-3 mx-2 me-3 text-secondary cursor-pointer " aria-hidden="true" data-bs-toggle="dropdown"></i>
+                  <ul class="dropdown-menu">
+                    <li id="modal-btn-editbeneficiary">
+                      <div class="dropdown-item cursor-pointer"><i class="fa fa-pencil fs-5 text-warning me-2"></i>Edit
+                        Details</div>
+                    </li>
+                    <li id="modal-btn-delbeneficiary">
+                      <div class="dropdown-item cursor-pointer"><i
+                          class="fa fa-trash-o  fs-5 text-danger me-2"></i>Remove</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The modal name is "Beneficiary delete confirm"-->
+    <div class="modal" id="modal-delbeneficiary">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header d-flex flex-column justify-content-center text-center">
+            <div id="modal-title" class="modal-title fs-3 mt-3 mb-2 ">
+              Delete Beneficiary?
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="container-fluid">
+              You're about to delete beneficiary from your account, are you sure?
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button class="btn position-relative mb-3" data-bs-dismiss="modal" onclick="">
+              Cancel
+            </button>
+            <button id="modal-btn-payconfirm" class="btn bg-danger text-white position-relative mb-3"
+              data-bs-dismiss="modal" onclick="">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- The modal name is "Beneficiary Edit - step1: beneficiary details"-->
+    <div class="modal" id="modal-beneficiary-details">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="d-flex flex-column justify-content-center text-center mx-5">
+            <div id="modal-title" class="modal-title fs-3 mt-3 mb-2 ">
+              Beneficiary Details
+            </div>
+            <p class="text-secondary">Enter the beneficiary personal details in order to add into your list</p>
+            <div class="progress w-100 mb-3">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:40%">
+                Beneficiary Details
+              </div>
+              <div class="progress-bar bg-success" style="width:40%">
+                Account Details
+              </div>
+              <div class="progress-bar bg-success" style="width:40%">
+                Confirm Details
+              </div>
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="mx-5">
+            <div class="row">
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <i class="fa fa-phone fs-5"></i>
+                  <span class="mx-3">Phone Number</span>
+                </div>
+                <div class="input-group h-60px">
+                  <div class="form-control py-0 d-flex align-items-center">
+                    <select class="selectpicker" data-width="150px" data-size="5">
+                      <option data-content="<div class='mt-1'><img src='assets/img/flag-AF.png' class='me-3'>+20</div>" value="1"></option>
+                      <option data-content="<div class='mt-1'><img src='assets/img/flag-AL.png' class='me-3'>+21</div>" value="2"></option>
+                      <option data-content="<div class='mt-1'><img src='assets/img/flag-AM.png' class='me-3'>+22</div>" value="3"></option>
+                    </select>                             
+                    <input id="phone" type="text" class="border-none w-100" placeholder="1236 7717 18" required>                            
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <i class="fa fa-envelope-o fs-5"></i>
+                  <span class="mx-3">Email Address</span>
+                </div>
+                <div class="input-group h-60px">
+                  <input type="text" class="form-control" placeholder="Akram@gmail.com">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 my-2">
+                <i class="fa fa-tint fs-5"></i>
+                <span class="mx-3">Address</span>
+                <div class="input-group h-60px mt-2">
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+              <div class="col-md-6 my-2">
+                <div class="row">
+                  <div class="col-6">
+                    <i class="fa fa-tint fs-5"></i>
+                    <span class="mx-2">Post Code</span>
+                    <!-- </div> -->
+                    <div class="input-group h-60px mt-2">
+                      <input type="text" class="form-control" placeholder="">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <i class="fa fa-tint fs-5"></i>
+                    <span class="mx-2">City</span>
+                    <!-- </div> -->
+                    <div class="input-group h-60px mt-2">
+                      <select class="form-select">
+                        <option>Alexandria</option>
+                        <option>Paris</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col my-2 mb-4">
+                <i class="fa fa-tint fs-5"></i>
+                <span class="mx-2">Country</span>
+                <!-- </div> -->
+                <div class="input-group h-60px mt-2">
+                  <select class="form-select">
+                    <option>Egyptian</option>
+                    <option>American</option>
+                    <option>Japanese</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex flex-row justify-content-around mb-4">
+              <div class="col btn btn-lg" data-bs-dismiss="modal" onclick="">Cancel</div>
+              <div id="modal-btn-benedetails-procced" class="col btn btn-lg bg-danger text-white position-relative">
+                <i id="modal-btnicon-sendmoney" class="fa fa-arrow-right fs-3 position-absolute signicon"></i>
+                Proceed
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- The modal name is "Beneficiary Edit - step2: account details"-->
+    <div class="modal" id="modal-beneficiary-account-details">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="mx-5 d-flex flex-column justify-content-center text-center">
+            <div id="modal-title" class="modal-title fs-3 mt-3 mb-2 ">
+              Account Details
+            </div>
+            <p class="text-secondary">Enter the beneficiary account details in order to add into your list</p>
+            <div class="progress w-100 mb-3">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:40%">
+                Beneficiary Details
+              </div>
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:40%">
+                Account Details
+              </div>
+              <div class="progress-bar bg-success" style="width:40%">
+                Confirm Details
+              </div>
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="mx-5">
+            <div class="row">
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="">Bank Name</span>
+                </div>
+                <div class="input-group h-60px">
+                  <input type="text" class="form-control" placeholder="e.g. Royal Bank of UK">
+                </div>
+              </div>
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="">Account Holder Name</span>
+                </div>
+                <div class="input-group h-60px">
+                  <input type="text" class="form-control" placeholder="Johnny Smith">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="my-2">
+                  <span class="">IBAN</span>
+                </div>
+                <div class="input-group h-60px">
+                  <input type="text" class="form-control" placeholder="EG6821737541242141249">
+                </div>
+              </div>
+              <div class="col-md-6 my-2">
+                <i class="fa fa-tint fs-5"></i>
+                <span class="mx-2">Bank Branch</span>
+                <!-- </div> -->
+                <div class="input-group h-60px mt-2">
+                  <select class="form-select">
+                    <option>Select Branch</option>
+                    <option>Select Branch</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col my-2 mb-4">
+                <i class="fa fa-tint fs-5"></i>
+                <span class="mx-2">Swift Code</span>
+                <!-- </div> -->
+                <div class="input-group h-60px mt-2">
+                  <select class="form-select">
+                    <option>Enter swift code</option>
+                    <option>Enter swift code</option>
+                    <option>Enter swift code</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-around mb-4">
+              <div class="col btn btn-lg" data-bs-dismiss="modal" onclick="">Back</div>
+              <div id="modal-btn-accountdetails-procced" class="col btn btn-lg bg-danger text-white position-relative">
+                <i id="modal-btnicon-sendmoney" class="fa fa-arrow-right fs-3 position-absolute signicon"></i>
+                Proceed
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- The modal name is "Beneficiary Edit - step3: confirm details"-->
+    <div class="modal" id="modal-beneficiary-confirm-details">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="mx-5 d-flex flex-column justify-content-center text-center">
+            <div id="modal-title" class="modal-title fs-3 mt-3 mb-2 ">
+              Confirm Details
+            </div>
+            <p class="text-secondary">Confirm the entered beneficiary details in order to add into your list</p>
+            <div class="progress w-100 mb-3">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:40%">
+                Beneficiary Details
+              </div>
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:40%">
+                Account Details
+              </div>
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width:40%">
+                Confirm Details
+              </div>
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="mx-5">
+            <div class="row">
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="">Phone Number</span>
+                </div>
+                <div class="input-group h-60px">
+                  <div class="form-control py-0 d-flex align-items-center">
+                    <select class="selectpicker" data-width="150px" data-size="5" disabled>
+                      <option data-content="<div class='mt-1'><img src='assets/img/flag-AF.png' class='me-3'>+20</div>" value="1"></option>
+                      <option data-content="<div class='mt-1'><img src='assets/img/flag-AL.png' class='me-3'>+21</div>" value="2"></option>
+                      <option data-content="<div class='mt-1'><img src='assets/img/flag-AM.png' class='me-3'>+22</div>" value="3"></option>
+                    </select>                             
+                    <input id="phone" type="text" class="border-none w-100" placeholder="1236 7717 18" disabled>                            
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="">Email Address</span>
+                </div>
+                <div class="input-group h-60px">
+                  <input type="text" class="form-control" placeholder="Akram@gmail.com" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 my-2">
+                <span class="">Address</span>
+                <div class="input-group h-60px mt-2">
+                  <input type="text" class="form-control" placeholder="King Ranch - Smouha" disabled>
+                </div>
+              </div>
+              <div class="col-md-6 my-2">
+                <div class="row">
+                  <div class="col-6">
+                    <span class="">Post Code</span>
+                    <!-- </div> -->
+                    <div class="input-group h-60px mt-2">
+                      <input type="text" class="form-control" placeholder="21539" disabled>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <span class="">City</span>
+                    <!-- </div> -->
+                    <div class="input-group h-60px mt-2">
+                      <input type="text" class="form-control" placeholder="Alexandria" disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="">Country</span>
+                </div>
+                <div class="input-group h-60px">
+                  <input type="text" class="form-control" placeholder="Egypt" disabled>
+                </div>
+              </div>
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="">Bank Name</span>
+                </div>
+                <div class="input-group h-60px">
+                  <input type="text" class="form-control" placeholder="Royal Bank of UK" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="">Account Holder Name</span>
+                </div>
+                <div class="input-group h-60px">
+                  <input type="text" class="form-control" placeholder="Johnny Smith" disabled>
+                </div>
+              </div>
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="">IBAN</span>
+                </div>
+                <div class="input-group h-60px">
+                  <input type="text" class="form-control" placeholder="EG6821737541242141249" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-around my-4">
+              <div class="col btn btn-lg" data-bs-dismiss="modal" onclick="">Back</div>
+              <div id="modal-btn-editbeneficiary-finish" class="col btn btn-lg bg-danger text-white position-relative" data-bs-dismiss="modal">
+                <i id="modal-btnicon-sendmoney" class="fa fa-arrow-right fs-3 position-absolute signicon"
+                  ></i>
+                <!-- <span class="spinner-border spinner-border-sm spinner "></span> -->
+                Proceed
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The modal name is "Beneficiary edit success"-->
+    <div class="modal" id="modal-beneedit-success">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="d-flex align-items-center justify-content-center text-center ">
+            <!-- <i class="fa fa-user fa-5x text-success my-4"></i> -->
+            <div class="col-11 position-relative wh-equal d-flex justify-content-center align-items-center rounded-circle"  style="border: 1px solid rgba(0, 245, 0, 0.1)">
+              <i class="position-absolute start-50 top-50 translate-middle rounded-circle shining-effect-green fa fa-user fa-4x text-success bg-transparent "></i>
+              <div class="col-8 d-flex justify-content-center align-items-center  wh-equal rounded-pill" style="border: 1px solid rgba(0, 245, 0, 0.2)">
+                <div class="col-7 d-flex justify-content-center align-items-center  wh-equal rounded-pill" style="border: 1px solid rgba(0, 245, 0, 0.3)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal body -->
+          <div class="mx-5 text-center">
+            <div id="modal-title" class="modal-title fs-3 mb-2 ">
+              Beneficiary Added
+            </div>
+            <p class="text-secondary mb-5">Your add request was submitted and we will
+              review and confirm soon
+            </p>
+            <!-- Modal footer -->
+            <div class="my-4">
+              <button id="" class="btn btn-lg form-control bg-danger text-white position-relative mb-3"
+                data-bs-dismiss="modal" onclick="">
+                <i class="fa fa-home fs-3 position-absolute signicon" aria-hidden="true"></i>
+                Process to home
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================================
+
+      Dashboard/Transaction history modals defenition starts
+
+    ==============================================================================================  -->
+    <!-- The modal name is "Set Range"-->
+    <div class="modal" id="modal-history-filter">
+      <div class="modal-dialog modal-dialog-centered modal">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="mx-5 d-flex justify-content-between">
+            <div id="modal-title" class="modal-title fs-3 mt-3 mb-2 ">
+              Filters
+            </div>
+            <div id="modal-filter-clearall" class="fs-5 mt-3 mb-2 cursor-pointer">
+              Clear All
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="mx-5">
+            <div class="row">
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="mx-3">Set Range</span>
+                </div>
+                <div class="input-group date h-60px datapicker" id="filter-datepicker-from">
+                  <input type="text" class="form-control" id="date-from" placeholder="From"/>
+                  <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block h-60px d-flex align-items-center">
+                      <i class="fa fa-calendar fs-5"></i>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="mx-3"></span>
+                </div>
+                <div class="input-group date h-60px datapicker" id="filter-datepicker-to">
+                  <input type="text" class="form-control" id="date-to" placeholder="To"/>
+                  <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block h-60px d-flex align-items-center">
+                      <i class="fa fa-calendar fs-5"></i>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-around my-4">
+              <!-- <div class="col btn btn-lg" data-bs-dismiss="modal" onclick="">Cancel</div> -->
+              <div id="modal-btn-filter-procced" class="col btn btn-lg bg-danger text-white position-relative">
+                Filter Result
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+
+        </div>
+      </div>
+    </div>
+    
+    <!-- The modal name is "Sort"-->
+    <div class="modal" id="modal-history-sortby">
+      <div class="modal-dialog modal-dialog-centered modal">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="mx-5 d-flex justify-content-between">
+            <div id="modal-title" class="modal-title fs-3 mt-3 mb-2 ">
+              Sortby
+            </div>
+            <div id="modal-filter-clearall" class="fs-5 mt-3 mb-2 cursor-pointer">
+              <!-- Clear All -->
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="mx-5">
+            <div class="row">
+              <div class="col ms-2">
+                <div class="form-check my-2">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Date Ascending
+                  <label class="form-check-label" for="radio1"></label>
+                </div>
+                <div class="form-check my-2">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Date Descending
+                  <label class="form-check-label" for="radio1"></label>
+                </div>
+                <div class="form-check my-2">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>High to low
+                  <label class="form-check-label" for="radio1"></label>
+                </div>
+                <div class="form-check my-2">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Low to high
+                  <label class="form-check-label" for="radio1"></label>
+                </div>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="d-flex justify-content-around my-4">
+              <!-- <div class="col btn btn-lg" data-bs-dismiss="modal" onclick="">Cancel</div> -->
+              <div id="modal-btn-sortby-procced" class="col btn btn-lg bg-danger text-white position-relative" data-bs-dismiss="modal">
+                Sort Result
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- The modal name is "Export transaction"-->
+    <div class="modal" id="modal-history-export">
+      <div class="modal-dialog modal-dialog-centered modal">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="mx-5 mt-3 d-flex justify-content-between">
+            <div id="modal-title" class="modal-title fs-3 mt-3 mb-2 ">
+              Export Transactions
+            </div>
+            <div id="modal-export-clearall" class="fs-5 mt-4 mb-2 cursor-pointer">
+              Clear All
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="mx-5">
+            <div class="row">
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="mx-3">Set Range</span>
+                </div>
+                <div class="input-group date h-60px datapicker" id="export-datepicker-from">
+                  <input type="text" class="form-control" id="date-from" placeholder="From"/>
+                  <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block h-60px d-flex align-items-center">
+                      <i class="fa fa-calendar fs-5"></i>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-6 my-2">
+                <div class="my-2">
+                  <span class="mx-3"></span>
+                </div>
+                <div class="input-group date h-60px datapicker" id="export-datepicker-to">
+                  <input type="text" class="form-control" id="date-to" placeholder="To"/>
+                  <span class="input-group-append">
+                    <span class="input-group-text bg-light d-block h-60px d-flex align-items-center">
+                      <i class="fa fa-calendar fs-5"></i>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col my-2">
+                <div class="input-group h-60px">
+                  <select class="form-select" >
+                    <option>Select Export Format</option>
+                    <option>Select Export Format</option>
+                    <option>Select Export Format</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="mx-5 d-flex justify-content-around my-4">
+            <!-- <div class="col btn btn-lg" data-bs-dismiss="modal" onclick="">Cancel</div> -->
+            <div id="modal-btn-export-procced" class="col btn btn-lg bg-danger text-white position-relative">
+              Export Transaction
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The modal name is "Transaction details"-->
+    <div class="modal" id="modal-history-transactiondetails">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="mx-5 mt-3">
+            <div id="modal-title" class="fs-3 mt-3 mb-2 ">
+              Transaction Details
+            </div>
+          </div>
+          <!-- Modal body -->
+          <div class="mx-5 mb-4">
+            <div class="row">
+              <div class="col-6">
+                <div class="my-2 mx-2">
+                  <div class="d-flex justify-content-between">
+                    <span class="">Transaction Value</span>
+                    <span class="">USD</span>                    
+                  </div>
+                  <!-- </div> -->
+                  <div class="input-group mt-2">
+                    <input type="text" class="form-control fs-5" placeholder="530 USD" disabled>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="my-2 mx-2">
+                  <span class="">Paying to</span>
+                  <!-- </div> -->
+                  <div class="input-group mt-2">
+                    <input type="text" class="form-control fs-5" placeholder="Khalid Saied Abdelmonem" disabled>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="my-2 mx-2">
+                  <span class="">Delivery Channel</span>
+                  <!-- </div> -->
+                  <div class="input-group mt-2">
+                    <input type="text" class="form-control fs-5" placeholder="Bank Account" disabled>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="my-2 mx-2">
+                  <span class="">Fund Account</span>
+                  <!-- </div> -->
+                  <div class="input-group mt-2">
+                    <input type="text" class="form-control fs-5" placeholder="Bank Transfer" disabled>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-6">
+                <div class="my-2 mx-2">
+                  <span class="">Paying from</span>
+                  <!-- </div> -->
+                  <div class="input-group mt-2">
+                    <input type="text" class="form-control fs-5" placeholder="Bank Account" disabled>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="my-2 mx-2">
+                  <span class="">Payment Status</span>
+                  <!-- </div> -->
+                  <div class="input-group mt-2">
+                    <input type="text" class="form-control fs-5" placeholder="Approved" disabled>
+                  </div>
+                </div>
+              </div>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================================
+
+      Settting modals 
+
+    ==============================================================================================  -->
+    <!-- Verification modal for password -->  
+    <div class="modal " id="modal-setting-security-verify">  
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="mx-5 mt-3 d-flex flex-column justify-content-center text-center">
+            <div class="fw-600 mt-3">Verification Sent</div>
+            <p class="mt-4 fw-300">
+              Enter the 4 digits code sent to the your mobile number to verify
+            </p>
+          </div>
+          <!-- Modal body -->
+          <div class="mx-5">
+            <div class="row">
+              <div class="col">
+                <div id="number-pan" class="d-flex my-4 mt-5 mb-5 justify-content-around">
+                  <div id="" class="0 col-2 text-center p-3 fs-1 cursor-pointer u-numpan u-numpan-active"onclick="">0</div>
+                  <div id="" class="1 col-2 text-center p-3 fs-1 cursor-pointer u-numpan">0
+                  </div>
+                  <div id="" class="2 col-2 text-center p-3 fs-1 cursor-pointer u-numpan"
+                    onclick="">0</div>
+                  <div id="" class="3 col-2 text-center p-3 fs-1 cursor-pointer u-numpan" onclick="">0
+                  </div>
+                </div>
+              </div>              
+            </div>
+            <div class="row text-center mt-2 mb-4">
+              <div class="col"> You will be able to resend in 01 : 60</div>
+            </div>
+            <div class="mb-4">
+              <button id="modal-btn-verify-submit" class="btn btn-lg form-control bg-danger text-white position-relative" data-bs-dismiss="modal"
+              onclick="">
+              <i class="fa fa-shield fs-3 position-absolute signicon"></i>
+              <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+              Verify & Proceed
+              </button>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  Change password modal -->
+    <div class="modal" id="modal-setting-security-changepwd">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="mx-5 d-flex flex-column justify-content-center text-center">
+            <div class="fw-600 mt-3">Change Password</div>
+          </div>
+          <!-- Modal body -->
+          <div class="mx-5">
+            <div class="row">
+              <div class="col">
+                <div class="my-2">
+                  <div id="oldpwd" class="">
+                    <div class="my-2">
+                      <i class="fa fa-lock  fs-5 me-2"></i>Old password
+                    </div>
+                    <div class="input-group h-60px">
+                      <input type="password" class="form-control" placeholder="*********">
+                      <span class="input-group-text bg-white "><i class="fa fa-eye text-danger fs-4"></i></span>
+                    </div>
+                  </div>                  
+                  <div id="userpwd" class="">
+                    <div class="my-2">
+                      <i class="fa fa-lock  fs-5 me-2"></i>New Password
+                    </div>
+                    <div class="input-group h-60px">
+                      <input type="password" class="form-control" placeholder="*********">
+                      <span class="input-group-text bg-white "><i class="fa fa-eye text-danger fs-4"></i></span>
+                    </div>
+                  </div>
+                  <div id="userpwd-confirm" class="my-4">
+                    <div class="my-2">
+                      <i class="fa fa-lock  fs-5 me-2"></i>Confirm New Password
+                    </div>
+                    <div class="input-group h-60px">
+                      <input type="password" class="form-control" placeholder="*********">
+                      <span class="input-group-text bg-white "><i class="fa fa-eye text-danger fs-4"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>              
+            </div>
+            <div class="mx-5 mb-4">
+              <button id="btn-submit" class="btn btn-lg form-control bg-danger text-white position-relative" data-bs-dismiss="modal"
+              onclick="">
+              <i class="fa fa-shield fs-3 position-absolute signicon"></i>
+              <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+              Change Password
+              </button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!--  Modal name is "Set two step verification" -->
+    <div class="modal" id="modal-setting-security-twostep">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header d-flex flex-column justify-content-center text-center">
+            <div class="fw-600 mt-3">Set Two-Step Verification</div>
+          </div>
+          <!-- Modal body -->
+          <div class="mx-5">
+            <div class="row">
+              <div class="col">
+                <div class="my-2">
+                  <div id="tabcontent-userphone" class="my-4">
+                    <div class="my-2">
+                      <i class="fa fa-phone fs-5"></i>
+                      <span class="mx-3">Phone Number</span>
+                    </div>
+                    <div class="input-group h-60px">
+                      <div class="form-control py-0 d-flex align-items-center">
+                        <select class="selectpicker" data-width="150px" data-size="5">
+                          <option data-content="<div class='mt-1'><img src='assets/img/flag-AF.png' class='me-3'>+20</div>" value="1"></option>
+                          <option data-content="<div class='mt-1'><img src='assets/img/flag-AL.png' class='me-3'>+21</div>" value="2"></option>
+                          <option data-content="<div class='mt-1'><img src='assets/img/flag-AM.png' class='me-3'>+22</div>" value="3"></option>
+                        </select>                             
+                        <input id="phone" type="text" class="border-none w-100" placeholder="1236 7717 18" required>                            
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>              
+            </div>
+            <div class="row mt-2 mb-4">
+              <div class="col">Enter the mobile number that you want to set for the
+                two-step verification process and we will send OTP to
+                confirm two-step setting</div>
+            </div>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="mx-5 my-4">
+            <button id="modal-btn-twostepstart" class="btn btn-lg form-control bg-danger text-white position-relative" data-bs-dismiss="modal"
+            onclick="">
+            <i class="fa fa-shield fs-3 position-absolute signicon"></i>
+            <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+            Set Two-Step Verification
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two step set success modal -->  
+    <div class="modal" id="modal-setting-security-twostep-success">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="mx-5 mt-5 d-flex justify-content-center text-center">
+            <i class="fa fa-mobile fa-5x text-success"></i>
+          </div>
+
+          <!-- Modal body -->
+          <div class="mx-5 text-center">
+            <div id="modal-title" class="modal-title fs-3 mt-3 mb-2 ">
+              Two-Step Set!
+              <p class="fs-5 text-secondary mt-4">Your two-step verification was set successfully &
+                now you will receive confirmation SMS before
+                making transactions
+              </p>
+            </div>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="mx-5 my-4">
+            <button id="" class="btn btn-lg form-control bg-danger text-white position-relative mb-3"
+              data-bs-dismiss="modal" onclick="">
+              <i class="fa fa-cog fs-3 position-absolute signicon" aria-hidden="true"></i>
+              Back to Settings
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Registered number setting success modal -->  
+    <div class="modal" id="modal-setting-security-registerednumber-success">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="mx-5 mt-5 d-flex justify-content-center text-center">
+            <i class="fa fa-mobile fa-5x text-success"></i>
+          </div>
+
+          <!-- Modal body -->
+          <div class="mx-5 text-center">
+            <div id="modal-title" class="modal-title fs-3 mt-3 mb-2 ">
+              Number Changed!
+              <p class="fs-5 text-secondary mt-4">We've changed your registered number into
+                the new one, goodluck!
+              </p>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="mx-5 my-4">
+            <button id="" class="btn btn-lg form-control bg-danger text-white position-relative mb-3"
+              data-bs-dismiss="modal" onclick="">
+              <i class="fa fa-cog fs-3 position-absolute signicon" aria-hidden="true"></i>
+              Back to Settings
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+        
+    <!-- Contact us modal -->  
+    <div class="modal" id="modal-setting-contactus-welcome">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="mx-5 mt-5 d-flex justify-content-center text-center">
+            <!-- <i class="fa fa-users fa-5x text-warning"></i> -->
+            <img src="assets/img/icon-contactus.png" width="115"/>
+          </div>
+          <p class="mt-3 fs-2 text-center ">Contact Us</p>   
+
+
+          <!-- Modal body -->
+          <div class="mx-5 text-center">
+            <div id="modal-title" class="modal-title mb-2 ">
+              <p class="fs-5 text-secondary mt-4 mx-5">Send us a message and we will reply to your request</p>
+              <p class="text-start mt-4 mx-3">Lorem ipsum dolor sit amet, consectetur ad ipiscing elit, se
+                d do eiusmod tempor incididunt ut labore et dolore magnr
+                aliqua. Ut em Lorem ipsum dolor sit amet, consectetur adu
+                piscing elit, sed do eiusmod tempor incididunt ut labore ed
+                olore magna aliqua. Ut emLorem ipsum dolor sit amet, con
+                sectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. Ut emLorem ipsum doloi
+                sit amet, consectetur adipiscing elit</p>
+            </div>
+              <div class="modal-footer">
+                <button id="modal-setting-btn-contactus-proceed" class="btn btn-lg form-control bg-danger text-white position-relative mb-3"
+                  data-bs-dismiss="modal" onclick="">
+                  <i class="fa fa-check fs-3 position-absolute signicon" aria-hidden="true"></i>
+                  Confirm & Send
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Rate us modal - step1 -->  
+    <div class="modal" id="modal-setting-contactus-rateus">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="mx-5 d-flex flex-column justify-content-center text-center">
+            <p class="my-4 fs-2 ">Rate Us</p>   
+            <p class="fs-5 text-secondary mt-3 mx-5">We will be pleased to know your valuable opinion about our app</p>
+            <div class="d-flex justify-content-around">
+              <i class="fa fa-star fa-4x text-warning mx-2"></i>
+              <i class="fa fa-star fa-4x text-warning mx-2"></i>
+              <i class="fa fa-star fa-4x text-warning mx-2"></i>
+              <i class="fa fa-star fa-4x text-warning mx-2"></i>
+              <i class="fa fa-star fa-4x u-text-lightergrey mx-2"></i>
+
+            </div>
+          </div>
+
+          <!-- Modal body -->
+          <div class="mx-5 text-center">
+            <div id="modal-title" class="modal-title mb-2 ">
+              <div class="form-group">
+                <label for="transfer-reason"></label>
+                <textarea class="form-control"
+                  placeholder="Mention your transfer reasons here .." rows="5"></textarea>
+              </div>
+            </div>
+          <div class="d-flex justify-content-around my-4">
+            <div class="col btn btn-lg" data-bs-dismiss="modal" onclick="">Cancel</div>
+            <div id="modal-setting-btn-contactus-submit" class="col btn btn-lg bg-danger text-white position-relative"  data-bs-dismiss="modal" >
+              Submit
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Rate us - step2 modal (Review done) -->  
+    <div class="modal" id="modal-setting-contactus-reviewdone">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="mx-5 mt-5 d-flex flex-column justify-content-center text-center">
+            <i class="fa fa-star fa-5x text-warning mx-2"></i>
+            <p class="mt-4 fs-2 ">Review Done!</p>   
+            <p class="fs-5 text-secondary mt-3 mx-5">Thanks for letting us know how you think about
+              us so we can improve!</p>
+            <div class="d-flex justify-content-around my-4">
+              <div id="modal-btn-accountdetails-procced" class="col form-control btn btn-lg bg-danger text-white position-relative"  data-bs-dismiss="modal" >
+                Done
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Select language -->  
+    <div class="modal" id="modal-setting-selectlanguage">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="mx-5">
+            <p class="mt-4 fs-4 ">Select Language</p>   
+          </div>
+          <div class="row mx-3 cursor-pointer" onclick="onLanguageItem(this)">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+              <img src="assets/img/flag-US.png" class="rounded-pill mx-3 " style="height: 40px; width: auto;" />
+               <p class="mt-3">English</p>                
+              </div>
+              <div>
+                <p id="english" class="langselmark text-center rounded-pill bg-danger text-white mt-2" style="height: 25px; width: 25px;"><i class="fa fa-check"></i></p>
+              </div>
+            </div>      
+          </div>
+          <div class="row mx-3 cursor-pointer" onclick="onLanguageItem(this)">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+              <img src="assets/img/flag-AF.png" class="rounded-pill mx-3 " style="height: 40px; width: auto;" />
+               <p class="mt-3">Afganistan</p>                
+              </div>
+              <div style="">
+                <p id="Afganistan" class="langselmark text-center rounded-pill bg-danger text-white mt-2" style="height: 25px; width: 25px;"><i class="fa fa-check"></i></p>
+              </div>
+            </div>     
+          </div>          
+          <div class="row mx-3 cursor-pointer" onclick="onLanguageItem(this)">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+              <img src="assets/img/flag-AL.png" class="rounded-pill mx-3 " style="height: 40px; width: auto;" />
+               <p class="mt-3">Albania</p>                
+              </div>
+              <div style="">
+                <p id="Albania" class="langselmark text-center rounded-pill bg-danger text-white mt-2" style="height: 25px; width: 25px;"><i class="fa fa-check"></i></p>
+              </div>
+            </div>           
+          </div>
+          <div class="row mx-3 cursor-pointer" onclick="onLanguageItem(this)">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+              <img src="assets/img/flag-AM.png" class="rounded-pill mx-3 " style="height: 40px; width: auto;" />
+               <p class="mt-3">Armenia</p>                
+              </div>
+              <div style="">
+                <p id="Armenia" class="langselmark text-center rounded-pill bg-danger text-white mt-2" style="height: 25px; width: 25px;"><i class="fa fa-check"></i></p>
+              </div>
+            </div>           
+          </div>
+          <div class="row mx-3 cursor-pointer" onclick="onLanguageItem(this)">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+              <img src="assets/img/flag-AO.png" class="rounded-pill mx-3 " style="height: 40px; width: auto;" />
+               <p class="mt-3">Argentina</p>                
+              </div>
+              <div style="">
+                <p id="Argentina" class="langselmark text-center rounded-pill bg-danger text-white mt-2" style="height: 25px; width: 25px;"><i class="fa fa-check"></i></p>
+              </div>
+            </div>           
+          </div>
+          <div class="row mx-3 cursor-pointer" onclick="onLanguageItem(this)">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+              <img src="assets/img/flag-AF.png" class="rounded-pill mx-3 " style="height: 40px; width: auto;" />
+               <p class="mt-3">Afganistan</p>                
+              </div>
+              <div style="">
+                <p id="Afganistan1" class="langselmark text-center rounded-pill bg-danger text-white mt-2" style="height: 25px; width: 25px;"><i class="fa fa-check"></i></p>
+              </div>
+            </div>     
+          </div>          
+          <div class="row mx-3 cursor-pointer" onclick="onLanguageItem(this)">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+              <img src="assets/img/flag-AL.png" class="rounded-pill mx-3 " style="height: 40px; width: auto;" />
+               <p class="mt-3">Albania</p>                
+              </div>
+              <div style="">
+                <p id="Albania1" class="langselmark text-center rounded-pill bg-danger text-white mt-2" style="height: 25px; width: 25px;"><i class="fa fa-check"></i></p>
+              </div>
+            </div>           
+          </div>
+          <div class="row mx-3 cursor-pointer" onclick="onLanguageItem(this)">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+              <img src="assets/img/flag-AM.png" class="rounded-pill mx-3 " style="height: 40px; width: auto;" />
+               <p class="mt-3">Armenia</p>                
+              </div>
+              <div style="">
+                <p id="Armenia1" class="langselmark text-center rounded-pill bg-danger text-white mt-2" style="height: 25px; width: 25px;"><i class="fa fa-check"></i></p>
+              </div>
+            </div>           
+          </div>
+          <div id="hello" class="row mx-3 cursor-pointer" onclick="onLanguageItem(this)">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+              <img src="assets/img/flag-AO.png" class="rounded-pill mx-3 " style="height: 40px; width: auto;" />
+               <p class="mt-3">Argentina</p>                
+              </div>
+              <div style="">
+                <p id="Argentina1" class="langselmark text-center rounded-pill bg-danger text-white mt-2" style="height: 25px; width: 25px;"><i class="fa fa-check"></i></p>
+              </div>
+            </div>           
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer justify-content-around">
+            <div id="modal-btn-accountdetails-procced" class="col form-control btn btn-lg bg-danger text-white position-relative"  data-bs-dismiss="modal" >
+              Change Language
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>    
+    <!-- Notifications -->  
+    <div class="modal" id="modal-setting-notifications">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="">
+            <p class="mt-4 mx-3 fs-4 ">Notifications</p>   
+          </div>
+          <div class="row mt-3 mx-3 cursor-pointer">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center mt-3">
+                <div>
+                  <p class="fs-5">Account administration</p>                
+                  <p class="">Information that helps you keep your account
+                    running smoothly</p>                     
+                </div>             
+              </div>
+              <div>
+                <p class="text-center rounded-pill bg-secondary bg-danger text-white mt-2" style="height: 25px; width: 25px;" onclick="onNotificationIcon(this)"></p>
+              </div>
+            </div>      
+          </div>
+          <div class="row mt-3 mx-3 cursor-pointer">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center mt-3">
+                <div>
+                  <p class="fs-5">Transaction and Balance</p>                
+                  <p class="">Messages about financial activity in the account
+                    and transaction history</p>                     
+                </div>             
+              </div>
+              <div>
+                <p class="text-center rounded-pill bg-secondary text-white mt-2" style="height: 25px; width: 25px;" onclick="onNotificationIcon(this)"></p>
+              </div>
+            </div>      
+          </div>
+          <div class="row mt-3 mx-3 cursor-pointer">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center mt-3">
+                <div>
+                  <p class="fs-5">Promotional News</p>                
+                  <p class="">Industry reports, event invites, product news and
+                    special offers from our side</p>                     
+                </div>             
+              </div>
+              <div>
+                <p class="text-center rounded-pill bg-secondary text-white mt-2" style="height: 25px; width: 25px;" onclick="onNotificationIcon(this)"></p>
+              </div>
+            </div>      
+          </div>
+          <div class="row mt-3 mb-3 mx-3 cursor-pointer">
+            <div class="col d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center mt-3">
+                <div>
+                  <p class="fs-5">Informational Messages</p>                
+                  <p class="">Info about changes to our services and products
+                    that you should know about</p>                     
+                </div>             
+              </div>
+              <div>
+                <p class="text-center rounded-pill bg-secondary text-white mt-2" style="height: 25px; width: 25px;" onclick="onNotificationIcon(this)"></p>
+              </div>
+            </div>      
+          </div>
+          <!-- Modal footer -->
+          <div class="mx-5 d-flex justify-content-around my-4">
+            <div id="modal-btn-accountdetails-procced" class="col form-control btn btn-lg bg-danger text-white position-relative"  data-bs-dismiss="modal" >
+              Set Notification Settings
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  
+</body>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="assets/js/dashboard.js"></script>
+
+</html>

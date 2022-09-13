@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>login</title>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="description" content="Flex money transfer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="coin, blockchain, flex money exchange, ethereum, bitcoin, ERC20, ERC721, ERC1155" />
+
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous"
+  referrerpolicy="no-referrer" />
+  <!-- Fonts links -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
+  <!-- Fav icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- User definition styles -->
+  <link href="assets/css/flex.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container-fluid w-100 h-100">
+    <div class="row h-100">
+      <!-- Logo pane (left side in sm mode) -->
+      <div class="col-lg-6 d-flex justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <img class="my-2 mt-5 my-md-5" src="assets/img/FLEX-LOGO.png" width="276" alt="" />
+          <div class="mt-5 mb-5 d-flex">
+            <div
+              class="d-flex flex-column align-items-center rounded-18px shadow-main1 px-2 px-lg-4 bg-white flex-fill">
+              <div class="rounded-pill  d-flex flex-column justify-content-center align-items-center size-42"
+                style="margin-top: -15px;">
+                <i class="fa fa-check-circle text-warning fs-1"></i>
+              </div>
+              <img src="assets/img/man.jpg" width="111" height="auto" class="rounded-pill mt-3 mt-lg-5" alt="" />
+              <div class="mt-1 mt-md-2 mt-lg-3 mt-xl-4 fs-4 mx-4 mx-md-4 mx-lg-1 mx-xl-4">Akram Sayed</div>
+              <div class="mt-3 mt-md-2 mt-lg-3  mt-xl-4 fs-4 fw-bold">$ 456.00</div>
+              <div class="mt-2 mt-md-2 mt-lg-3  mt-xl-4 mb-md-3 fs-5 text-warning">Transferred</div>
+            </div>
+            <div class="d-flex flex-column align-items-center rounded-3 px-4 bg-transparent flex-fill">
+              <div class="rounded-pill d-flex flex-column justify-content-center align-items-center size-42">
+                <i class="fa fa-check-circle text-success fs-1 fw-light"></i>
+              </div>
+              <img src="assets/img/woman.png" width="101" height="auto" class="rounded-pill mt-3 mt-lg-5" alt="" />
+              <div class="mt-1 mt-md-2 mt-lg-3 fs-5 mx-5">Nuha Kamel</div>
+              <div class="mt-3 mt-md-2 mt-lg-3 fs-5 fw-bold">$ 456.00</div>
+              <div class="mt-2 mt-md-2 mt-lg-3 fs-5 text-success">Received</div>
+            </div>
+            <div class="position-relative">
+            </div>
+          </div>
+          <div class="my-5 fs-4 fs-lg-3 fw-bold">Easiest way to manage your money</div>
+        </div>
+      </div>
+      <!-- Login pane (right side in sm mode) -->
+
+      <!-- Screen case 1 : login logic -->
+      <div id="casename-login" class="col-lg-6">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100" style="visibility: hidden;">
+              <div
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i>
+              </div>
+            </div>
+
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+              <div class="col-md-10 col-lg-8 col-xl-8 mt-3 text-white">
+                <div class="fs-3 fw-bold">Login</div>
+                <p class="mt-2 fw-300">
+                  Login to your account using your email and let's get social today!
+                </p>
+                <div class="d-flex my-4">
+                  <div id="case-login-tabbtn-phone"
+                    class="col-6 text-center p-3 fs-5 cursor-pointer u-tabbtn u-tabbtn-active" onclick="">Phone</div>
+                  <div id="case-login-tabbtn-email" class="col-6 text-center p-3  fs-5 cursor-pointer u-tabbtn"
+                    onclick="">Email
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form">
+                      <div id="case-login-tabcontent-userphone" class="my-4">
+                        <div class="my-2">
+                          <i class="fa fa-phone fs-5"></i>
+                          <span class="mx-3">Phone</span>
+                        </div>
+                        <div class="input-group h-60px">
+                          <div class="form-control py-0 d-flex align-items-center">
+                            <select class="selectpicker" data-width="150px" data-size="5" >
+                              <option data-content="<div class='mt-1'><img src='assets/img/flag-AF.png' class='me-3'>+20</div>" value="1"></option>
+                              <option data-content="<div class='mt-1'><img src='assets/img/flag-AL.png' class='me-3'>+21</div>" value="2"></option>
+                              <option data-content="<div class='mt-1'><img src='assets/img/flag-AM.png' class='me-3'>+22</div>" value="3"></option>
+                            </select>                             
+                            <input id="phone" type="text" class="border-none w-100" placeholder="1236 7717 18" required>
+                            <div class="invalid-feedback">Please fill out this field.</div>                            
+                          </div>
+                        </div>
+                      </div>
+                      <div id="case-login-tabcontent-useremail" class="my-4" style="display:none">
+                        <div class="my-2">
+                          <i class="fa fa-envelope-o fs-5"></i>
+                          <span class="mx-3">Email</span>
+                        </div>
+                        <div class="input-group h-60px">
+                          <input type="email" class="form-control" placeholder="Akram@gmail.com" required>
+                          <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                      </div>
+                      <div id="userpwd" class="my-4">
+                        <div class="my-2">
+                          <i class="fa fa-lock  fs-5 mr-3"></i>
+                        </div>
+                        <div class="input-group h-60px">
+                          <input id="password" type="password" class="form-control" placeholder="*********" required>
+                          <span class="input-group-text bg-white "><i class="fa fa-eye text-danger fs-4"></i></span>
+                          <div class="invalid-feedback text-white">Please fill out this field.</div>
+                        </div>
+                      </div>
+                      <div class="my-5">
+                        <div class="row">
+                          <div class="col-7 ">
+                            <div class="form-check cursor-pointer">
+                              <input class="form-check-input u-form-check cursor-pointer" type="checkbox"
+                                id="rememberme" name="option1" value="something" checked>
+                              <label class="form-check-label cursor-pointer mt-1 ms-2">Remember Me</label>
+                            </div>
+                          </div>
+                          <div class="col-5">
+                            <div id="login-btn-forgot" class="font-weight-bold text-end fs-5 cursor-pointer u-btn-text"
+                              onclick="">Forgot
+                              Pin</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="my-4">
+                        <button id="login-btn-submit" type="submit"
+                          class="btn btn-lg form-control bg-danger text-white position-relative u-btn-text" onclick="">
+                          <i class="fa fa-sign-in fs-3 position-absolute signicon"></i>
+                          <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                          Login
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen case 2 : Forgot password -->
+      <div id="casename-forgotpwd" class="col-lg-6" style="display:none">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100">
+              <div id="forgotpwd-btn-back"
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+              <div class="col-md-10 col-lg-8 col-xl-8 mt-3 text-white">
+                <div class="fw-600">Forgot Password</div>
+                <p class="mt-3 fw-300">
+                  Enter your registered email to receive a reset link for your password
+                </p>
+                <div class="d-flex my-4 mt-5 mb-5 justify-content-between ">
+                  <div id="case-pwdrecovery-tabbtn-email"
+                    class="col-5 d-flex flex-column justify-content-around align-items-center text-center p-3 cursor-pointer u-iconbtn wh-same u-iconbtn-active text-danger">
+                    <!-- <i class="fa fa-envelope-open-o fa-2x mt-2" aria-hidden="true"></i> -->
+                    <img src="assets/img/icon-email.png" class="mt-2" alt="" />
+                    <p class="mt-3">Email Recovery</p>
+                  </div>
+                  <div id="case-pwdrecovery-tabbtn-phone"
+                    class="col-5 d-flex flex-column justify-content-around align-items-center  text-center p-3 cursor-pointer u-iconbtn wh-same text-danger">
+                    <!-- <i class="fa fa-mobile fa-3x mt-1" aria-hidden="true"></i> -->
+                    <img src="assets/img/icon-sms.png" class="mt-2" alt="" />
+                    <p class="mt-2">Mobile Recovery</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div id="case-pwdrecovery-tabcontent-userphone" class="my-4" style="display:none">
+                      <div class="my-2">
+                        <i class="fa fa-phone fs-5"></i>
+                        <span class="mx-3">Phone</span>
+                      </div>
+                      <div class="input-group h-60px">
+                        <div class="form-control py-0 d-flex align-items-center">
+                          <select class="selectpicker" data-width="150px" data-size="5">
+                            <option data-content="<div class='mt-1'><img src='assets/img/flag-AF.png' class='me-3'>+20</div>" value="1"></option>
+                            <option data-content="<div class='mt-1'><img src='assets/img/flag-AL.png' class='me-3'>+21</div>" value="2"></option>
+                            <option data-content="<div class='mt-1'><img src='assets/img/flag-AM.png' class='me-3'>+22</div>" value="3"></option>
+                          </select>                             
+                          <input id="phone" type="text" class="border-none w-100" placeholder="1236 7717 18" required>                            
+                        </div>
+                      </div>
+                    </div>
+                    <div id="case-pwdrecovery-tabcontent-useremail" class="my-4">
+                      <div class="my-2">
+                        <i class="fa fa-envelope-o fs-5"></i>
+                        <span class="mx-3">Email</span>
+                      </div>
+                      <div class="input-group h-60px">
+                        <input type="text" class="form-control" placeholder="Akram@gmail.com">
+                      </div>
+                    </div>
+                    <div class="my-4">
+                      <!-- <div class="text-center mt-2 mb-4">Please insert your any email address.</div> -->
+                      <button id="forgotpwd-btn-submit"
+                        class="btn btn-lg form-control bg-danger text-white position-relative mt-5">
+                        <i class="fa fa-lock fs-3 position-absolute signicon"></i>
+                        <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                        Reset Password
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen case 3 : Verification for numbers (4 digits) -->
+      <div id="casename-digitconfirm" class="col-lg-6 " style="display:none">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100">
+              <div id="confirmdigit-btn-back"
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+              <div class="col-md-10 col-lg-8 col-xl-8 mt-3 text-white">
+                <div class="fw-600">Verification Sent</div>
+                <p class="mt-2 fw-300">
+                  Enter the 4 digits code sent to the your mobile number to verify
+                </p>
+                <div id="number-pan" class="d-flex my-4 mt-5 mb-5 justify-content-around">
+                  <div class="0 col-2 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active" onclick="">0</div>
+                  <div class="1 col-2 text-center p-3 fs-1 cursor-pointer u-tabbtn" onclick="">0</div>
+                  <div class="2 col-2 text-center p-3 fs-1 cursor-pointer u-tabbtn " onclick="">0</div>
+                  <div class="3 col-2 text-center p-3 fs-1 cursor-pointer u-tabbtn" onclick="">0</div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="my-4">
+                      <div class="text-center mt-2 mb-4">You will be able to resend in 01 : 60</div>
+                      <button id="verifydigit-btn-submit"
+                        class="btn btn-lg form-control bg-danger text-white position-relative" onclick="">
+                        <i class="fa fa-shield fs-3 position-absolute signicon"></i>
+                        <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                        Verify OTP
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen case 4 : Password reset -->
+      <div id="casename-resetpwd" class="col-lg-6" style="display:none">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100">
+              <div id="resetpwd-btn-back"
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+              <div class="col-md-10 col-lg-8 col-xl-8 mt-3 text-white">
+                <div class="fw-600">Reset Password</div>
+                <p class="fw-300 mt-4">
+                  Create a new password to be able to access your account
+                </p>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="my-2 mb-5">
+                      <div id="userpwd" class="">
+                        <div class="my-2 mt-5">
+                          <i class="fa fa-lock  fs-5"></i><span class="mx-3">Password</span>
+                        </div>
+                        <div class="input-group h-60px">
+                          <input type="password" class="form-control" placeholder="*********">
+                          <span class="input-group-text bg-white "><i class="fa fa-eye text-danger fs-4"></i></span>
+                        </div>
+                      </div>
+                      <div id="userpwd-confirm" class="my-4">
+                        <div class="my-2">
+                          <i class="fa fa-lock  fs-5 mr-3"></i><span class="mx-3">Password</span>
+                        </div>
+                        <div class="input-group h-60px">
+                          <input type="password" class="form-control" placeholder="*********">
+                          <span class="input-group-text bg-white "><i class="fa fa-eye text-danger fs-4"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="my-4">
+                      <!-- <div class="text-center mt-2 mb-4">Please insert your phone number.</div> -->
+                      <button id="resetpwd-btn-submit"
+                        class="btn btn-lg form-control bg-danger text-white position-relative mt-5" onclick="">
+                        <i class="fa fa-check fs-3 position-absolute signicon"></i>
+                        <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                        Confirm and Reset
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen case 5 : Password reset successed -->
+      <div id="casename-resetpwd-success" class="col-lg-6" style="display:none">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100" style="visibility: hidden;">
+              <div
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+              <div class="col-md-10 col-lg-8 col-xl-8 mt-3 text-white text-center">
+              <!-- Rounded brightness effect -->
+              <div class="col-11 position-relative wh-equal d-flex justify-content-center align-items-center rounded-circle"  style="border: 1px solid rgba(255, 2455, 245, 0.1)">
+                <img class="position-absolute start-50 top-50 translate-middle rounded-circle shining-effect fa fa-check fa-4x bg-transparent" src="assets/img/icon-brightkey.png" width="100" height="100" />
+                <!-- <i class="position-absolute start-50 top-50 translate-middle rounded-circle shining-effect fa fa-check fa-4x bg-transparent"></i> -->
+                <div class="col-8 d-flex justify-content-center align-items-center  wh-equal rounded-pill" style="border: 1px solid rgba(255, 255, 245, 0.2)">
+                  <div class="col-7 d-flex justify-content-center align-items-center  wh-equal rounded-pill" style="border: 1px solid rgba(255, 255, 245, 0.3)">
+                  </div>
+                </div>
+              </div>
+                 <div class="fw-600 mt-5">Password Changed!</div>
+                <p class="mt-2 fw-300">
+                  Your old password has been changed successfully!
+                </p>
+                <div class="row mt-5">
+                  <div class="col-12">
+                    <div class="my-4">
+                      <button id="resetpwdsuccess-btn-login" class="btn btn-lg form-control bg-danger text-white position-relative"
+                        onclick="">
+                        <i class="fa fa-sign-in fs-3 position-absolute signicon"></i>
+                        <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                        Login
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen case 6 : Create new account step 1 : email verification -->
+      <div id="casename-createaccount-emailverify" class="col-lg-6" style="display:none">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100" style="visibility: hidden;">
+              <div
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+              <div class="col-md-10 col-lg-8 col-xl-8 mt-3 text-white">
+                <div class="fw-600">Create New Account</div>
+                <p class="mt-5">First step</p>
+                <p class="fw-300">
+                  Email Address Verification
+                </p>
+                <div class="d-flex my-4 mt-1 mb-5 justify-content-around">
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active">
+                  </div>
+                  <div id="tabbtn-email" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn"></div>
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn"></div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="my-2">
+                      <i class="fa fa-envelope-o fs-5"></i>
+                      <span class="mx-3">Email Address</span>
+                      <!-- </div> -->
+                      <div class="input-group h-60px mt-2">
+                        <input type="text" class="form-control" placeholder="Akram@gmail.com">
+                      </div>
+                    </div>
+                    <div class="my-4">
+                      <div class="text-center mt-2 mb-4">Please insert your any email address.</div>
+                      <button id="createaccount-btn-emailsubmit"
+                        class="btn btn-lg form-control bg-danger text-white position-relative" onclick="">
+                        <i class="fa fa-arrow-right fs-3 position-absolute signicon"></i>
+                        <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                        Proceed
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen case 7 : Create new account step 2 : phone verification -->
+      <div id="casename-createaccount-phoneverify" class="col-lg-6" style="display:none">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100">
+              <div
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+              <div class="col-md-10 col-lg-8 col-xl-8 mt-3 text-white">
+                <div class="fw-600">Create New Account</div>
+                <p class="mt-5">Second step</p>
+                <p class="fw-300">
+                  Phone Number Verification
+                </p>
+                <div class="d-flex my-4 mt-1 mb-5 justify-content-around">
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active">
+                  </div>
+                  <div id="tabbtn-email" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active">
+                  </div>
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn"></div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="my-2">
+                      <i class="fa fa-envelope-o fs-5"></i>
+                      <span class="mx-3">Phone</span>
+                      <!-- </div> -->
+                      <div class="input-group h-60px mt-2">
+                        <div class="form-control py-0 d-flex align-items-center">
+                          <select class="selectpicker" data-width="150px" data-size="5">
+                            <option data-content="<div class='mt-1'><img src='assets/img/flag-AF.png' class='me-3'>+20</div>" value="1"></option>
+                            <option data-content="<div class='mt-1'><img src='assets/img/flag-AL.png' class='me-3'>+21</div>" value="2"></option>
+                            <option data-content="<div class='mt-1'><img src='assets/img/flag-AM.png' class='me-3'>+22</div>" value="3"></option>
+                          </select>                             
+                          <input id="phone" type="text" class="border-none w-100" placeholder="1236 7717 18" required>                            
+                        </div>
+                      </div>
+                    </div>
+                    <div class="my-4">
+                      <div class="text-center mt-2 mb-4">Please insert your phone number.</div>
+                      <button id="createaccount-btn-phonesubmit"
+                        class="btn btn-lg form-control bg-danger text-white position-relative" onclick="">
+                        <i class="fa fa-arrow-right fs-3 position-absolute signicon"></i>
+                        <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                        Proceed
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen case 8 : Create new account step 3 : set password -->
+      <div id="casename-createaccount-setpwd" class="col-lg-6" style="display:none">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100">
+              <div
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+              <div class="col-md-10 col-lg-8 col-xl-8 mt-3 text-white">
+                <div class="fw-600">Create New Account</div>
+                <p class="mt-5">Third step</p>
+                <p class="fw-300">
+                  Set Account Password
+                </p>
+                <div class="d-flex my-4 mt-1 mb-5 justify-content-around">
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active">
+                  </div>
+                  <div id="tabbtn-email" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active">
+                  </div>
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="my-2">
+                      <div id="userpwd" class="">
+                        <div class="my-2">
+                          <i class="fa fa-lock  fs-5 mr-3"></i>
+                        </div>
+                        <div class="input-group h-60px">
+                          <input type="password" class="form-control" placeholder="*********">
+                          <span class="input-group-text bg-white "><i class="fa fa-eye text-danger fs-4"></i></span>
+                        </div>
+                      </div>
+                      <div id="userpwd-confirm" class="my-4">
+                        <div class="my-2">
+                          <i class="fa fa-lock  fs-5 mr-3"></i>
+                        </div>
+                        <div class="input-group h-60px">
+                          <input type="password" class="form-control" placeholder="*********">
+                          <span class="input-group-text bg-white "><i class="fa fa-eye text-danger fs-4"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="my-4">
+                      <!-- <div class="text-center mt-2 mb-4">Please insert and confirm your password.</div> -->
+                      <button id="createaccount-btn-pwdset"
+                        class="btn btn-lg form-control bg-danger text-white position-relative mt-4" onclick="">
+                        <i class="fa fa-user-plus fs-3 position-absolute signicon"></i>
+                        <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                        Create Profile
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen case 9 : Complete profile Step1: Personal information -->
+      <div id="casename-completeprofile-personalinfo" class="col-lg-6" style="display:none">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100" style="visibility: hidden;">
+              <div
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+              <div class="col-md-10 col-lg-8 col-xl-8 mt-3 text-white">
+                <div class="fw-600">Complete Profile</div>
+                <p class="mt-5">First step</p>
+                <p class="fw-300">
+                  Personal Information
+                </p>
+                <div class="d-flex my-4 mt-1 mb-5 justify-content-around">
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active">
+                  </div>
+                  <div id="tabbtn-email" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn"></div>
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn"></div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div id="tabcontent-userphone" class="my-4">
+                      <div class="mb-4">
+                        <div class="my-2">
+                          <i class="fa fa-user-o fs-5"></i>
+                          <span class="mx-3">Full Name</span>
+                          <!-- </div> -->
+                          <div class="input-group h-60px mt-2">
+                            <input type="text" class="form-control" placeholder="Akram@gmail.com">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="my-4">
+                        <div>
+                          <i class="fa fa-flag-checkered  fs-5"></i>
+                          <span class="mx-3">Nationality</span>
+                        </div>
+                        <div class="input-group h-60px mt-2">
+                          <select class="form-select">
+                            <option>Egyptian</option>
+                            <option>American</option>
+                            <option>Japanese</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="my-4">
+                        <i class="fa fa-tint fs-5"></i>
+                        <span class="mx-3">Date of Birth</span>
+                        <div class="input-group h-60px mt-2">
+                          <input type="text" class="form-control" placeholder="Akram@gmail.com">
+                        </div>
+                      </div>
+                      <div class="my-4">
+                        <i class="fa fa-male fs-5"></i>
+                        <i class="fa fa-female fs-5"></i>
+                        <span class="mx-2">Gender</span>
+                        <div class="input-group h-60px mt-2">
+                          <input type="text" class="form-control" placeholder="Akram@gmail.com">
+                        </div>
+                      </div>
+                      <div class="my-4">
+                        <button id="completeprofile-btn-personalinfo"
+                          class="btn btn-lg form-control bg-danger text-white position-relative mt-4" onclick="">
+                          <i class="fa fa-arrow-right fs-3 position-absolute signicon"></i>
+                          <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                          Proceed
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen case 10 : Complete profile Step2: Address information -->
+      <div id="casename-completeprofile-addressinfo" class="col-lg-6" style="display:none">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100">
+              <div
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+              <div class="col-md-10 col-lg-8 col-xl-8 mt-3 text-white">
+                <div class="fw-600">Complete Profile</div>
+                <p class="mt-5">Second step</p>
+                <p class="fw-300">
+                  Address Information
+                </p>
+                <div class="d-flex my-4 mt-1 mb-5 justify-content-around">
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active">
+                  </div>
+                  <div id="tabbtn-email" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active">
+                  </div>
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn"></div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="my-4">
+                      <div class="my-2">
+                        <i class="fa fa-phone fs-5"></i>
+                        <span class="mx-3">Phone</span>
+                      </div>
+                      <div class="input-group h-60px mt-2">
+                        <div class="form-control py-0 d-flex align-items-center">
+                          <select class="selectpicker" data-width="150px" data-size="5">
+                            <option data-content="<div class='mt-1'><img src='assets/img/flag-AF.png' class='me-3'>+20</div>" value="1"></option>
+                            <option data-content="<div class='mt-1'><img src='assets/img/flag-AL.png' class='me-3'>+21</div>" value="2"></option>
+                            <option data-content="<div class='mt-1'><img src='assets/img/flag-AM.png' class='me-3'>+22</div>" value="3"></option>
+                          </select>                             
+                          <input id="phone" type="text" class="border-none w-100" placeholder="1236 7717 18" required>                            
+                        </div>
+                      </div>
+                    </div>
+                    <div class="my-4">
+                      <div class="my-2">
+                        <i class="fa fa-envelope-o fs-5"></i>
+                        <span class="mx-3">Email</span>
+                      </div>
+                      <div class="input-group h-60px mt-2">
+                        <input type="text" class="form-control" placeholder="Akram@gmail.com">
+                      </div>
+                    </div>
+                    <div class="my-4">
+                      <i class="fa fa-tint fs-5"></i>
+                      <span class="mx-3">Address</span>
+                      <!-- </div> -->
+                      <div class="input-group h-60px mt-2">
+                        <input type="text" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                    <div class="row my-4 d-flex justify-content-between">
+                      <div class="col-6">
+                        <i class="fa fa-tint fs-5"></i>
+                        <span class="mx-2">Post Code</span>
+                        <!-- </div> -->
+                        <div class="input-group h-60px mt-2">
+                          <input type="text" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <i class="fa fa-tint fs-5"></i>
+                        <span class="mx-2">Country</span>
+                        <!-- </div> -->
+                        <div class="input-group h-60px mt-2">
+                          <select class="form-select">
+                            <option>Egyptian</option>
+                            <option>American</option>
+                            <option>Japanese</option>
+                          </select>
+                          <!-- <input type="text" class="form-control" placeholder="Akram@gmail.com"> -->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="my-4">
+                      <button id="completeprofile-btn-addressinfo"
+                        class="btn btn-lg form-control bg-danger text-white position-relative mt-4" onclick="">
+                        <i class="fa fa-arrow-right fs-3 position-absolute signicon"></i>
+                        <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                        Proceed
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen case 10 : Complete profile Step3: Identification information -->  
+      <div id="casename-completeprofile-identificationinfo" class="col-lg-6" style="display:none">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100">
+              <div
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+              <div class="col-md-10 col-lg-8 col-xl-8 mt-3 text-white">
+                <div class="fw-600">Complete Profile</div>
+                <p class="mt-5">Third step</p>
+                <p class="fw-300">
+                  Identification Info
+                </p>
+                <div class="d-flex my-4 mt-1 mb-5 justify-content-around">
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active">
+                  </div>
+                  <div id="tabbtn-email" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active">
+                  </div>
+                  <div id="tabbtn-phone" class="col-3 text-center p-3 fs-1 cursor-pointer u-tabbtn u-tabbtn-active"></div>
+                </div>
+                <div class="row">
+                  <div
+                    class="d-flex flex-column justify-content-around align-items-center text-center p-3 cursor-pointer u-iconbtn-active rounded-18px my-1">
+                    <!-- <i class="fa fa-address-card-o  fa-3x mt-2" aria-hidden="true"></i> -->
+                    <img src="assets/img/icon-credit.png" height="50"  >
+                    <p class="mt-3 text-dark">National ID Verification</p>
+                  </div>
+                  <div
+                    class="d-flex flex-column justify-content-around align-items-center  text-center p-3 cursor-pointer u-iconbtn-active rounded-18px my-1">
+                    <!-- <i class="fa fa-credit-card fa-3x mt-1" aria-hidden="true"></i> -->
+                    <img src="assets/img/icon-passport.png" height="50"/>
+                    <p class="mt-2 text-dark">Passport Verification</p>
+                  </div>
+                  <div
+                    class="d-flex flex-column justify-content-around align-items-center  text-center p-3 cursor-pointer u-iconbtn-active rounded-18px rounded-4 my-1">
+                    <!-- <i class="fa fa-car fa-3x mt-1" aria-hidden="true"></i> -->
+                    <img src="assets/img/icon-car.png" height="50" />
+                    <p class="mt-2 text-dark">Driver's License</p>
+                  </div>
+                </div>
+                <div class="my-4">
+                  <button id="completeprofile-btn-identificationinfo"
+                   class="btn btn-lg form-control bg-danger text-white position-relative mt-4"
+                    onclick="">
+                    <i class="fa fa-arrow-right fs-3 position-absolute signicon"></i>
+                    <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                    Proceed
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>      
+
+      <!-- Screen case 11 : Face verification -->  
+      <div id="casename-faceverification" class="col-lg-6" style="display:none">
+        <div class="row u-bg-image h-100">
+          <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+            <div class="row w-100" style="display:none">
+              <div
+                class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+                style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+            </div>
+            <div class="row w-100">
+              <div class="col-md-1 col-lg-2 col-xl-3"></div>
+              <div class="col-md-10 col-lg-8 col-xl-6 mt-3 text-white">
+                <div class="fw-600">Face Verification</div>
+                <p class="mt-3 fw-300">
+                  Take a photo of yourself holding a paper with the following code written on it
+                </p>
+                <div class="fs-1">0B847A</div>
+                <div class="d-flex my-4 mt-2 mb-5">
+                  <div id="faceverification-btn-image" class="col-12 d-flex flex-column justify-content-around align-items-center text-center p-3 cursor-pointer u-iconbtn bg-transparent opacity-100 text-white dotted-border rounded-3" >
+                    <i class="fa fa-plus fa-3x mt-2" aria-hidden="true"></i>
+                    <p class="mt-3 fs-3">Image Upload</p>
+                    <p class="fs-5">Less than 2 MB</p>
+                    <input type="file" id="faceverification-btnreal-image" style="display:none">
+                  </div>
+                </div>
+                <div class="fw-600">Upload Files</div>
+                <p class="mt-3 fw-300">
+                  Upload the front and back sides of the identity card you have to verify
+                </p>
+                <div class="d-flex my-4 mt-2 mb-5 d-flex justify-content-between">
+                  <div id="faceverification-btn-frontimage" class="col-5 d-flex flex-column justify-content-around align-items-center text-center p-3 cursor-pointer u-iconbtn bg-transparent opacity-100 text-white dotted-border rounded-3" >
+                    <i class="fa fa-plus fa-3x mt-2" aria-hidden="true"></i>
+                    <p class="mt-3 fs-5">Front side</p>
+                    <input type="file" id="faceverification-btnreal-frontimage" style="display:none">
+                  </div>
+                  <div id="faceverification-btn-backimage" class="col-5 d-flex flex-column justify-content-around align-items-center text-center p-3 cursor-pointer u-iconbtn bg-transparent opacity-100 text-white dotted-border rounded-3" >
+                    <i class="fa fa-plus fa-3x mt-2" aria-hidden="true"></i>
+                    <p class="mt-3 fs-5">Back side</p>
+                    <input type="file" id="faceverification-btnreal-backimage" style="display:none">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                      <div class="my-4">
+                        <button id="faceverification-btn-submit" class="btn btn-lg form-control bg-danger text-white position-relative"
+                          onclick="">
+                          <i class="fa fa-check fs-3 position-absolute signicon"></i>
+                          <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                          confirm
+                        </button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col-lg-2 col-xl-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen case 12 : Well Done -->  
+    <div id="casename-welldone" class="col-lg-6" style="display:none">
+      <div class="row u-bg-image h-100">
+        <div class="u-bg-mask h-100 d-flex flex-column justify-content-center align-items-center py-6">
+          <div class="row w-100" style="display:none">
+            <div
+              class="rounded-circle bg-white text-danger d-flex justify-content-center align-items-center u-iconbtn mx-2 my-2 mx-md-3 my-md-3 mx-xl-5 my-xl-5"
+              style="width:50px; height:50px; z-index:2"><i class="fa fa-angle-left fs-1"></i></div>
+          </div>
+          <div class="row w-100">
+            <div class="col-md-1 col-lg-2 col-xl-3"></div>
+            <div class="col-md-10 col-lg-8 col-xl-6 mt-3 text-white text-center">
+              <!-- Rounded brightness effect -->
+              <div class="col-11 position-relative wh-equal d-flex justify-content-center align-items-center rounded-circle"  style="border: 1px solid rgba(255, 2455, 245, 0.1)">
+                <i class="position-absolute start-50 top-50 translate-middle rounded-circle shining-effect fa fa-check fa-4x bg-transparent"></i>
+                <div class="col-8 d-flex justify-content-center align-items-center  wh-equal rounded-pill" style="border: 1px solid rgba(255, 255, 245, 0.2)">
+                  <div class="col-7 d-flex justify-content-center align-items-center  wh-equal rounded-pill" style="border: 1px solid rgba(255, 255, 245, 0.3)">
+                  </div>
+                </div>
+              </div>
+              <div class="fw-600 mt-5">Well Done!</div>
+              <p class="mt-2 fw-300">
+                Your profile is now being reviewed. You will get verified by the next 24 hours.
+              </p>
+              <div class="row mt-5">
+                <div class="col-12">
+                    <div class="my-4">
+                      <button id="welldone-btn-submit" class="btn btn-lg form-control bg-danger text-white position-relative"
+                        onclick="">
+                        <i class="fa fa-home fs-3 position-absolute signicon"></i>
+                        <!-- <span class="spinner-border spinner-border-sm spinner"></span> -->
+                        Login
+                      </button>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1 col-lg-2 col-xl-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal" id="modal-confirm">
+    <div class="modal-dialog modal-dialog-centered d-flex text-center">
+      <div class="modal-content text-center d-flex justify-content-center">
+        <!-- Modal Header -->
+        <div class="modal-header  d-flex justify-content-center">
+          <div id="modal-title" class="modal-title fs-5 mt-3 mb-2 text-secondary"></div>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div id="modal-bodytitle" class="my-4 fs-2"></div>
+          <div id="modal-bodytext" class="fs-5 mb-3 mx-5 text-secondary"></div>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer d-flex flex-row justify-content-around">
+          <button type="button" class="btn my-3" data-bs-dismiss="modal">Decline</button>
+          <button id="modal-confirm-btn-accept" type="button" class="btn btn-danger my-3"
+            data-bs-dismiss="modal">Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script> -->
+<!-- <script src="js/flex.js"></script> -->
+
+<script src="assets/js/auth.js"></script>
+
+</html>
